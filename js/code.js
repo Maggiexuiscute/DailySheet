@@ -32,10 +32,14 @@
 	    		if(key <= current_date && key !=0){
 	    			$('#'+val).css('opacity',1);
 	    			$('#'+val).find('button.undo').addClass('happy');
+	    			$('#'+val).find('button.carousel-control-next').removeClass('hide');
+	    			$('#'+val).find('button.carousel-control-prev').removeClass('hide');
 
 	    		}else{
 	    			$('#'+val).css('opacity',0.4);
 	    			$('#'+val).find('button').removeClass('happy').addClass('disabled');
+	    			$('#'+val).find('button.carousel-control-next').addClass('hide');
+	    			$('#'+val).find('button.carousel-control-prev').addClass('hide');
 	    		}
     		}
     	})
