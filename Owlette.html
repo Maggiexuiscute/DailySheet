@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Owlette Daily Sheet</title>
+
+	<!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" type="text/css" href="fontawesome-free-5.15.4-web/css/all.css">
+
+</head>
+<style type="text/css">
+	#main_header h1{
+		color: #be202d;
+		text-align: center;
+	}
+
+	.jumbotron {
+		background: linear-gradient(to bottom, rgba(255,255,255,0.85) 0%,rgba(255,255,255,0.95) 100%),url(img/logo1.png) no-repeat center;
+		-webkit-background-size: 100% 100%;
+		-moz-background-size: 100% 100%;
+		-o-background-size: 100% 100%;
+		 background-size: 100% 100%;
+
+
+	}
+
+
+
+	.hide {
+		display: none;
+	}
+
+	.happy_span {
+		color: red;
+	
+		animation: duration 1s linear both;
+		
+	}
+
+
+	@keyframes duration {
+		0%  {opacity: 0%; }
+	
+		90% {opacity: 100%; }
+		94% {opacity: 100%; }
+		100% {opacity: 100%;}
+	}
+
+	#weekly_stars h3 {
+		font-weight: 300;
+	}
+
+	#weekly_stars span {
+		text-shadow: 0px 4px 5px rgba(0, 0, 0, 1); 
+	}
+
+	h5 {
+		text-shadow: 0px 4px 5px rgba(0, 0, 0, 1); 
+	}
+
+	button {
+		border: none;
+		outline:none;
+	}
+
+	button:hover, button:focus {
+	  outline: none;
+	  border: none;
+	}
+
+	.daily_happy {
+		color: red;
+	}
+
+	img.w-100{
+		opacity: 0.8;
+	}
+
+
+
+</style>
+
+<body>
+	<header>
+      <div class="navbar bg-light shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center"><img src="img/logo1.png" width="20%">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+    <main role="main">
+
+      <section class="jumbotron text-center mt-3" id="main_header">
+        <div class="container">
+        	<div class="d-flex flex-row">
+        		<div class="col-sm-4 p-2">
+        			<img src="img/logo.png" width="35%" alt="owlette"> 
+        		</div>
+	      		<div class="col-sm-4 p-4">
+	      			<h3>THIS WEEK YOU GOT:</h3>
+	      			<div id="weekly_stars"></div>
+	      		</div>
+			    <div class="col-sm-4 p-2">
+			    	<img src="img/amaya.png" alt="gift" width="35%">
+			    </div>
+		    </div>
+          </p>
+        </div>
+      </section>
+
+
+		  	<div class="container">
+	
+		      <div class="album py-5 bg-light">
+		        <div class="container date_container" id="full_week">
+
+		          <div class="row">
+		            <div class="col-md-3">
+		              <div class="card mb-4 shadow" id="mon_card">
+
+		              	<!------Monday carousel------>
+		              	<div id="mon_carousel" class="carousel slide daily_carousel" data-bs-ride="carousel">
+						  <div class="carousel-indicators">
+						    <button type="button" data-bs-target="#mon_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						    <button type="button" data-bs-target="#mon_carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						    <button type="button" data-bs-target="#mon_carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						    <button type="button" data-bs-target="#mon_carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+						    <button type="button" data-bs-target="#mon_carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+						    <button type="button" data-bs-target="#mon_carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+						    <button type="button" data-bs-target="#mon_carousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+						    <button type="button" data-bs-target="#mon_carousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+						  </div>
+						  <div class="carousel-inner">
+						  	<div class="carousel-item active">
+						      <img src="img/kind.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="kind_span_mon"><i class="fas fa-heart fa-3x"></i></span><br>Be kind to everyone</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/eat.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="eat_span_mon"><i class="fas fa-heart fa-3x"></i></span><br>Eat your meal</h5>
+						      </div>
+						    </div>
+						    
+						    <div class="carousel-item">
+						      <img src="img/friends2.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="hug_span_mon"><i class="fas fa-heart fa-3x"></i></span><br>Greet and hug your friends</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/activity.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="indoor_span_mon"><i class="fas fa-heart fa-3x"></i></span><br>Indoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/outdoor1.jpg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="outdoor_span_mon"><i class="fas fa-heart fa-3x"></i></span><br>Outdoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bath.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bath_span_mon"><i class="fas fa-heart fa-3x"></i></span><br>Wash yourself</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bedtime.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bed_span_mon"><i class="fas fa-heart fa-3x"></i></span><br>Go bed at your bedtime</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/brave.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="brave_span_mon"><i class="fas fa-heart fa-3x"></i></span><br>Be brave</h5>
+						      </div>
+						    </div>
+						  </div>
+						  <button class="carousel-control-prev" type="button" data-bs-target="#mon_carousel" data-bs-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Previous</span>
+						  </button>
+						  <button class="carousel-control-next" type="button" data-bs-target="#mon_carousel" data-bs-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Next</span>
+						  </button>
+						</div>
+		              	<!-------end of Monday carousel-------->
+		                <div class="card-body">
+		                  <p class="card-text">MONDAY <span class="daily_happy" id="mon_stars"></span></p>
+		                  <div class="d-flex justify-content-between align-items-center">
+		                    <div class="btn-group">
+		                      <button type="button mon_btn" class="btn btn-lg btn-outline-success happy mon_btn"><i class="far fa-laugh-beam"></i></button>
+		                      <button type="button mon_btn" class="btn btn-lg btn-outline-secondary sad mon_btn"><i class="far fa-frown"></i></button>
+		                    </div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+
+		            <div class="col-md-3">
+		              <div class="card mb-4 shadow" id="tue_card">
+		              	<!------Tuesday carousel------>
+		              	<div id="tue_carousel" class="carousel slide daily_carousel" data-bs-ride="carousel">
+						  <div class="carousel-indicators">
+						    <button type="button" data-bs-target="#tue_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						    <button type="button" data-bs-target="#tue_carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						    <button type="button" data-bs-target="#tue_carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						    <button type="button" data-bs-target="#tue_carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+						    <button type="button" data-bs-target="#tue_carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+						    <button type="button" data-bs-target="#tue_carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+						    <button type="button" data-bs-target="#tue_carousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+						    <button type="button" data-bs-target="#tue_carousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+						  </div>
+						  <div class="carousel-inner">
+						  	<div class="carousel-item active">
+						      <img src="img/kind.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="kind_span_tue"><i class="fas fa-heart fa-3x"></i></span><br>Be kind to everyone</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/eat.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="eat_span_tue"><i class="fas fa-heart fa-3x"></i></span><br>Eat your meal</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/friends2.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="hug_span_tue"><i class="fas fa-heart fa-3x"></i></span><br>Greet and hug your friends</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/activity.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="indoor_span_tue"><i class="fas fa-heart fa-3x"></i></span><br>Indoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/outdoor1.jpg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="outdoor_span_tue"><i class="fas fa-heart fa-3x"></i></span><br>Outdoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bath.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bath_span_tue"><i class="fas fa-heart fa-3x"></i></span><br>Wash yourself</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bedtime.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bed_span_tue"><i class="fas fa-heart fa-3x"></i></span><br>Go bed at your bedtime</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/brave.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="brave_span_tue"><i class="fas fa-heart fa-3x"></i></span><br>Be brave</h5>
+						      </div>
+						    </div>
+						  </div>
+						  <button class="carousel-control-prev" type="button" data-bs-target="#tue_carousel" data-bs-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Previous</span>
+						  </button>
+						  <button class="carousel-control-next" type="button" data-bs-target="#tue_carousel" data-bs-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Next</span>
+						  </button>
+						</div>
+		              	<!-------end of Tuesday carousel-------->
+		                <div class="card-body">
+		                  <p class="card-text">TUESDAY <span class="daily_happy" id="tue_stars"></span></p>
+		                  <div class="d-flex justify-content-between align-items-center">
+		                    <div class="btn-group">
+		                      <button type="button tue_btn" class="btn btn-lg btn-outline-success happy tue_btn"><i class="far fa-laugh-beam"></i></button>
+		                      <button type="button tue_btn" class="btn btn-lg btn-outline-secondary sad tue_btn"><i class="far fa-frown"></i></button>
+		                    </div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+
+		            <div class="col-md-3">
+		              <div class="card mb-4 shadow" id="wen_card">
+		              	<!------Wednesday carousel------>
+		              	<div id="wen_carousel" class="carousel slide daily_carousel" data-bs-ride="carousel">
+						  <div class="carousel-indicators">
+						    <button type="button" data-bs-target="#wen_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						    <button type="button" data-bs-target="#wen_carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						    <button type="button" data-bs-target="#wen_carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						    <button type="button" data-bs-target="#wen_carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+						    <button type="button" data-bs-target="#wen_carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+						    <button type="button" data-bs-target="#wen_carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+						    <button type="button" data-bs-target="#wen_carousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+						    <button type="button" data-bs-target="#wen_carousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+						  </div>
+						  <div class="carousel-inner">
+						    <div class="carousel-item active">
+						      <img src="img/kind.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="kind_span_wen"><i class="fas fa-heart fa-3x"></i></span><br>Be kind to everyone</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/eat.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="eat_span_wen"><i class="fas fa-heart fa-3x"></i></span><br>Eat your meal</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/friends2.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="hug_span_wen"><i class="fas fa-heart fa-3x"></i></span><br>Greet and hug your friends</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/activity.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="indoor_span_wen"><i class="fas fa-heart fa-3x"></i></span><br>Indoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/outdoor1.jpg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="outdoor_span_wen"><i class="fas fa-heart fa-3x"></i></span><br>Outdoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bath.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bath_span_wen"><i class="fas fa-heart fa-3x"></i></span><br>Wash yourself</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bedtime.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bed_span_wen"><i class="fas fa-heart fa-3x"></i></span><br>Go bed at your bedtime</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/brave.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="brave_span_wen"><i class="fas fa-heart fa-3x"></i></span><br>Be brave</h5>
+						      </div>
+						    </div>
+						  </div>
+						  <button class="carousel-control-prev" type="button" data-bs-target="#wen_carousel" data-bs-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Previous</span>
+						  </button>
+						  <button class="carousel-control-next" type="button" data-bs-target="#wen_carousel" data-bs-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Next</span>
+						  </button>
+						</div>
+		              	<!-------end of Wednesday carousel-------->
+		               
+		                <div class="card-body">
+		                  <p class="card-text">WEDNESDAY <span class="daily_happy" id="wen_stars"></span></p>
+		                  <div class="d-flex justify-content-between align-items-center">
+		                    <div class="btn-group">
+		                      <button type="button" class="btn btn-lg btn-outline-success happy wen_btn"><i class="far fa-laugh-beam"></i></button>
+		                      <button type="button" class="btn btn-lg btn-outline-secondary sad wen_btn"><i class="far fa-frown"></i></button>
+		                    </div>
+		  
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+		            
+
+		            <div class="col-md-3">
+		              <div class="card mb-4 shadow" id="thu_card">
+		              	<!------Thursday carousel------>
+		              	<div id="thu_carousel" class="carousel slide daily_carousel" data-bs-ride="carousel">
+						  <div class="carousel-indicators">
+						    <button type="button" data-bs-target="#thu_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						    <button type="button" data-bs-target="#thu_carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						    <button type="button" data-bs-target="#thu_carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						    <button type="button" data-bs-target="#thu_carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+						    <button type="button" data-bs-target="#thu_carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+						    <button type="button" data-bs-target="#thu_carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+						    <button type="button" data-bs-target="#thu_carousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+						    <button type="button" data-bs-target="#thu_carousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+						  </div>
+						  <div class="carousel-inner">
+						    <div class="carousel-item active">
+						      <img src="img/kind.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="kind_span_thu"><i class="fas fa-heart fa-3x"></i></span><br>Be kind to everyone</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/eat.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="eat_span_thu"><i class="fas fa-heart fa-3x"></i></span><br>Eat your meal</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/friends2.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="hug_span_thu"><i class="fas fa-heart fa-3x"></i></span><br>Greet and hug your friends</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/activity.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="indoor_span_thu"><i class="fas fa-heart fa-3x"></i></span><br>Indoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/outdoor1.jpg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="outdoor_span_thu"><i class="fas fa-heart fa-3x"></i></span><br>Outdoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bath.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bath_span_thu"><i class="fas fa-heart fa-3x"></i></span><br>Wash yourself</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bedtime.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bed_span_thu"><i class="fas fa-heart fa-3x"></i></span><br>Go bed at your bedtime</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/brave.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="brave_span_thu"><i class="fas fa-heart fa-3x"></i></span><br>Be brave</h5>
+						      </div>
+						    </div>
+						  </div>
+						  <button class="carousel-control-prev" type="button" data-bs-target="#thu_carousel" data-bs-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Previous</span>
+						  </button>
+						  <button class="carousel-control-next" type="button" data-bs-target="#thu_carousel" data-bs-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Next</span>
+						  </button>
+						</div>
+		              	<!-------end of Thursday carousel-------->
+		                <div class="card-body">
+		                  <p class="card-text">THURSDAY <span class="daily_happy" id="thu_stars"></span></p>
+		                  <div class="d-flex justify-content-between align-items-center">
+		                    <div class="btn-group">
+		                      <button type="button" class="btn btn-lg btn-outline-success happy thu_btn"><i class="far fa-laugh-beam"></i></button>
+		                      <button type="button" class="btn btn-lg btn-outline-secondary sad thu_btn"><i class="far fa-frown"></i></button>
+		                    </div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+		            <div class="col-md-3">
+		              <div class="card mb-4 shadow" id="fri_card">
+		              	<!------Friday carousel------>
+		              	<div id="fri_carousel" class="carousel slide daily_carousel" data-bs-ride="carousel">
+						  <div class="carousel-indicators">
+						    <button type="button" data-bs-target="#fri_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						    <button type="button" data-bs-target="#fri_carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						    <button type="button" data-bs-target="#fri_carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						    <button type="button" data-bs-target="#fri_carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+						    <button type="button" data-bs-target="#fri_carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+						    <button type="button" data-bs-target="#fri_carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+						    <button type="button" data-bs-target="#fri_carousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+						    <button type="button" data-bs-target="#fri_carousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+						  </div>
+						  <div class="carousel-inner">
+						    <div class="carousel-item active">
+						      <img src="img/kind.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="kind_span_fri"><i class="fas fa-heart fa-3x"></i></span><br>Be kind to everyone</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/eat.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="eat_span_fri"><i class="fas fa-heart fa-3x"></i></span><br>Eat your meal</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/friends2.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="hug_span_fri"><i class="fas fa-heart fa-3x"></i></span><br>Greet and hug your friends</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/activity.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="indoor_span_fri"><i class="fas fa-heart fa-3x"></i></span><br>Indoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/outdoor1.jpg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="outdoor_span_fri"><i class="fas fa-heart fa-3x"></i></span><br>Outdoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bath.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bath_span_fri"><i class="fas fa-heart fa-3x"></i></span><br>Wash yourself</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bedtime.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bed_span_fri"><i class="fas fa-heart fa-3x"></i></span><br>Go bed at your bedtime</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/brave.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="brave_span_fri"><i class="fas fa-heart fa-3x"></i></span><br>Be brave</h5>
+						      </div>
+						    </div>
+						  </div>
+						  <button class="carousel-control-prev" type="button" data-bs-target="#fri_carousel" data-bs-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Previous</span>
+						  </button>
+						  <button class="carousel-control-next" type="button" data-bs-target="#fri_carousel" data-bs-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Next</span>
+						  </button>
+						</div>
+		              	<!-------end of Friday carousel-------->
+		                <div class="card-body">
+		                  <p class="card-text">FRIDAY <span class="daily_happy" id="fri_stars"></span></p>
+		                  <div class="d-flex justify-content-between align-items-center">
+		                    <div class="btn-group">
+		                      <button type="button" class="btn btn-lg btn-outline-success happy fri_btn"><i class="far fa-laugh-beam"></i></button>
+		                      <button type="button" class="btn btn-lg btn-outline-secondary sad fri_btn"><i class="far fa-frown"></i></button>
+		                    </div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+		            <div class="col-md-3">
+		              <div class="card mb-4 shadow" id="sat_card">
+		              	<!------Saturday carousel------>
+		              	<div id="sat_carousel" class="carousel slide daily_carousel" data-bs-ride="carousel">
+						  <div class="carousel-indicators">
+						    <button type="button" data-bs-target="#sat_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						    <button type="button" data-bs-target="#sat_carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						    <button type="button" data-bs-target="#sat_carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						    <button type="button" data-bs-target="#sat_carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+						    <button type="button" data-bs-target="#sat_carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>		    
+						    <button type="button" data-bs-target="#sat_carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+						    <button type="button" data-bs-target="#sat_carousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+						    <button type="button" data-bs-target="#sat_carousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+						  </div>
+						  <div class="carousel-inner">
+						    <div class="carousel-item active">
+						      <img src="img/kind.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="kind_span_sat"><i class="fas fa-heart fa-3x"></i></span><br>Be kind to everyone</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/eat.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="eat_span_sat"><i class="fas fa-heart fa-3x"></i></span><br>Eat your meal</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/friends2.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="hug_span_sat"><i class="fas fa-heart fa-3x"></i></span><br>Greet and hug your friends</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/activity.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="indoor_span_sat"><i class="fas fa-heart fa-3x"></i></span><br>Indoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/outdoor1.jpg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="outdoor_span_sat"><i class="fas fa-heart fa-3x"></i></span><br>Outdoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bath.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bath_span_sat"><i class="fas fa-heart fa-3x"></i></span><br>Wash yourself</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bedtime.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bed_span_sat"><i class="fas fa-heart fa-3x"></i></span><br>Go bed at your bedtime</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/brave.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="brave_span_sat"><i class="fas fa-heart fa-3x"></i></span><br>Be brave</h5>
+						      </div>
+						    </div>
+						  </div>
+						  <button class="carousel-control-prev" type="button" data-bs-target="#sat_carousel" data-bs-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Previous</span>
+						  </button>
+						  <button class="carousel-control-next" type="button" data-bs-target="#sat_carousel" data-bs-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Next</span>
+						  </button>
+						</div>
+		              	<!-------end of Saturday carousel-------->
+		                <div class="card-body">
+		                  <p class="card-text">SATURDAY <span class="daily_happy" id="sat_stars"></span></p>
+		                  <div class="d-flex justify-content-between align-items-center">
+		                    <div class="btn-group">
+		                      <button type="button" class="btn btn-lg btn-outline-success happy sat_btn"><i class="far fa-laugh-beam"></i></button>
+		                      <button type="button" class="btn btn-lg btn-outline-secondary sad sat_btn"><i class="far fa-frown"></i></button>
+		                    </div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+
+		            <div class="col-md-3">
+		              <div class="card mb-4 shadow" id="sun_card">
+		              	<!------Sunday carousel------>
+		              	<div id="sun_carousel" class="carousel slide daily_carousel" data-bs-ride="carousel">
+						  <div class="carousel-indicators">
+						    <button type="button" data-bs-target="#sun_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						    <button type="button" data-bs-target="#sun_carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						    <button type="button" data-bs-target="#sun_carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						    <button type="button" data-bs-target="#sun_carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+						    <button type="button" data-bs-target="#sun_carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+						    <button type="button" data-bs-target="#sun_carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+						    <button type="button" data-bs-target="#sun_carousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+						    <button type="button" data-bs-target="#sun_carousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+						  </div>
+						  <div class="carousel-inner">
+						    <div class="carousel-item active">
+						      <img src="img/kind.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="kind_span_sun"><i class="fas fa-heart fa-3x"></i></span><br>Be kind to everyone</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/eat.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="eat_span_sun"><i class="fas fa-heart fa-3x"></i></span><br>Eat your meal</h5>
+						      </div>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="img/friends2.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="hug_span_sun"><i class="fas fa-heart fa-3x"></i></span><br>Greet and hug your friends</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/activity.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="indoor_span_sun"><i class="fas fa-heart fa-3x"></i></span><br>Indoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/outdoor1.jpg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="outdoor_span_sun"><i class="fas fa-heart fa-3x"></i></span><br>Outdoor activity</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bath.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bath_span_sun"><i class="fas fa-heart fa-3x"></i></span><br>Wash yourself</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/bedtime.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="bed_span_sun"><i class="fas fa-heart fa-3x"></i></span><br>Go bed at your bedtime</h5>
+						      </div>
+						    </div>
+
+						    <div class="carousel-item">
+						      <img src="img/brave.jpeg" class="d-block w-100" alt="...">
+						      <div class="carousel-caption d-none d-md-block">
+						        <h5><span class="happy_span hide" id="brave_span_sun"><i class="fas fa-heart fa-3x"></i></span><br>Be brave</h5>
+						      </div>
+						    </div>
+						  </div>
+						  <button class="carousel-control-prev" type="button" data-bs-target="#sun_carousel" data-bs-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Previous</span>
+						  </button>
+						  <button class="carousel-control-next" type="button" data-bs-target="#sun_carousel" data-bs-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Next</span>
+						  </button>
+						</div>
+		              	<!-------end of Sunday carousel-------->
+		                <div class="card-body">
+		                  <p class="card-text">SUNDAY <span class="daily_happy" id="sun_stars"></span></p>
+		                  <div class="d-flex justify-content-between align-items-center">
+		                    <div class="btn-group">
+		                      <button type="button" class="btn btn-lg btn-outline-success happy sun_btn"><i class="far fa-laugh-beam"></i></button>
+		                      <button type="button" class="btn btn-lg btn-outline-secondary sad sun_btn"><i class="far fa-frown"></i></button>
+		                    </div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+		            <div class="col-md-3">
+		            	
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		      </div>
+
+    </main>
+</body>
+    
+	<script src="js/jquery-3.6.0.slim.min.js"></script>
+    <script src="js/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="js/code.js"></script>
+</html>
