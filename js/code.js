@@ -72,6 +72,14 @@ console.log(check);
 			}
 			$('#goal').text(text + " ");
 
+			var prize_text = "Not set yet";
+			console.log(localStorage.prize)
+			if(localStorage.prize == null || localStorage.prize == ""){
+			}else{
+				prize_text = localStorage.prize;
+			}
+			$('#prize').text(prize_text);
+
 
 			if(localStorage.clickcount == 'NaN' || localStorage.clickcount < 0 || localStorage.clickcount == undefined){
     		localStorage.clickcount = 0;
@@ -320,10 +328,23 @@ console.log(check);
 				$('#info_card').find('i').addClass('hide');
 			}else{
 				text = goal;
-				$('#info_card').find('i').removeClass('hide');
-				localStorage.goal = goal;
+				$('#info_card').find('i').removeClass('hide');	
 			}
+			localStorage.goal = goal;
 			$('#goal').text(text + " ");
+		}
+
+		function set_gift(){
+			var text;
+			var prize = prompt("Please enter the prize for this week", "");
+			console.log(prize == "")
+			if(prize == null || prize == ""){
+				text= "Not set yet";
+			}else{
+				text = prize;
+			}
+			localStorage.prize = prize;
+			$('#prize').text(text);
 		}
 
 		function clear_storage() {
