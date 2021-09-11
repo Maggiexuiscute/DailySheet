@@ -98,7 +98,6 @@
       </div>
     </header>
 
-
     <main role="main">
 
       <section class="jumbotron text-center mt-3" id="main_header">
@@ -703,6 +702,14 @@
 		              </div>
 		            </div>
 		            <div class="col-md-3">
+		            	<div class="card mb-4 shadow" id="info_card">
+		            		<div id="gifts"></div>		            	
+		            	<div class="card-body">
+		            		<p class="card-text">Weekly Goal: <span id="goal">Not set yet</span><i class="fas fa-heart daily_happy hide"></i></p>
+			            	<button class="btn btn-outline-success" onclick="set_goal()">Set Goal</button>
+			            	<button class="btn btn-outline-success" onclick="clear_storage()">Clear Records</button>
+		           		 </div>
+		           		 </div>
 		            	
 		            </div>
 		          </div>
@@ -711,6 +718,7 @@
 		      </div>
 
     </main>
+
 </body>
     
 	<script src="js/jquery-3.6.0.slim.min.js"></script>

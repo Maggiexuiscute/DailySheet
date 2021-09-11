@@ -1,4 +1,16 @@
+	
+var check = window.localStorage.length;
+console.log(check);
+	if(check == 0){
+		var init_set = confirm("Welcome to PJ Masks weekly sheet!");
+		if(init_set){
+			get_local_storage();
+		}else{
+			get_local_storage();
+		}
+	}
 
+		//location.reload();
     	//Initialize 
     	const EVENT = 9;
     	localStorage.monSlide = 0;
@@ -10,7 +22,9 @@
     	localStorage.sunSlide = 0;
     	//localStorage.monCount = 'NaN'
 
-    	console.log(localStorage.monCount)
+    	$('#gifts').height($('.carousel-item').height());
+    	console.log($('.carousel-item').height())
+    	console.log($('#gifts').height())
 
     	var myCarousel = $('.daily_carousel');
     	myCarousel.each(function(i,c){
@@ -20,7 +34,7 @@
     		});
 
     	});
-
+    	get_local_storage();
 
 		//Get the current date
     	var current_date = new Date().getDay();
@@ -44,11 +58,19 @@
     		}
     	})
 
-    	get_local_storage();
+    	//get_local_storage();
 
    		function get_local_storage(){
 
 			if (typeof(Storage) != "undefined") {
+			var text= "Not set yet";
+			if(localStorage.goal == null || localStorage.goal == ""){
+				$('#info_card').find('i').addClass('hide');
+			}else{
+				text = localStorage.goal;
+				$('#info_card').find('i').removeClass('hide');
+			}
+			$('#goal').text(text + " ");
 
 
 			if(localStorage.clickcount == 'NaN' || localStorage.clickcount < 0 || localStorage.clickcount == undefined){
@@ -170,7 +192,8 @@
 			    })
 			    
 			} else {
-			    document.getElementById("full_week").innerHTML = "Sorry, your browser does not support Web Storage...";
+				console.log("no");
+			   // document.getElementById("full_week").innerHTML = "Sorry, your browser does not support Web Storage...";
 			}
 			$("#weekly_stars").html("");
 			if(localStorage.clickcount){
@@ -287,6 +310,31 @@
     			}
     			
     		})
+		}
+
+		function set_goal(){
+			var text;
+			var goal = prompt("Please enter your gaol for this week", "50");
+			if(goal == null || goal == ""){
+				text= "Not set yet";
+				$('#info_card').find('i').addClass('hide');
+			}else{
+				text = goal;
+				$('#info_card').find('i').removeClass('hide');
+				localStorage.goal = goal;
+			}
+			$('#goal').text(text + " ");
+		}
+
+		function clear_storage() {
+			var confirmed = confirm("Are you sure to reset everything?");
+			if(confirmed){
+				console.log(confirmed);
+				localStorage.clear();
+				get_local_storage();
+				location.reload();
+
+			}
 		}
 
 		//////////////////////////////////////
