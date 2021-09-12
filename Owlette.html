@@ -764,7 +764,10 @@
 		            		<div class="card-body">
 		            			<p class="card-text">Weekly Earned: <span id="dollar">$ </span><span id="total_money"></span></p>
 		            			<div class="d-flex justify-content-between align-items-center">
-					            	<button class="btn btn-lg btn-outline-success" onclick="shopping()">Shopping</button>
+		            				<div class="btn-group">
+						            	<button class="btn btn-lg btn-outline-success" onclick="shopping()">Shopping</button>
+						            	<button class="btn btn-lg btn-outline-danger" onclick="shopping_return()">Return</button>
+						            </div>
 					       			 </div>
 		            		</div>
 		            		<!-- <div id="gifts"><h5 class="m-4">Prize for this week: <br><br><span id="prize">Not set yet</span></h5></div>		            	
@@ -795,6 +798,5 @@
 	<script src="js/jquery-3.6.0.slim.min.js"></script>
     <script src="js/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
-
     <script type="text/javascript" src="js/code.js"></script>
 </html>

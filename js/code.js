@@ -357,9 +357,11 @@
 		// 	$('#prize').text(text);
 		// }
 
+
 		function shopping(){
 			var price = prompt("Please enter the price", money);
-			var left
+
+			var left = money - Number(localStorage.spentMoney);
 			if(price == null){
 				return;
 			}
@@ -367,20 +369,45 @@
 				alert("You haven't filled the price!\nPress Ok to continue");
 				shopping();
 			}else{
-				if(money < parseFloat(price)){
+				if(left < parseFloat(price)){
 					alert("Oops!\nSeems you don't have enough money...\nTry to earn more hearts!")
 				}else{
-					left = parseFloat(money-Number(price)).toFixed(2);
+					left = (left-Number(price)).toFixed(2);
 					localStorage.spentMoney = price;
 					$('#left_money').text('$'+left);
 					$('#spent_money').text('$'+price);
-
+					$('#shopping_sound')[0].currentTime=0;
 					$('#shopping_sound')[0].play();
 				}
 				
 			}
 			
 			
+		}
+
+		function shopping_return(){
+			var price = prompt("Please enter the price of your return", " ");
+			var left = money - Number(localStorage.spentMoney);
+			if(price == null){
+				return;
+			}
+			if(price == ""){
+				alert("You haven't filled the price!\nPress Ok to continue");
+				shopping_return();
+			}else{
+				if(money < parseFloat(price) || Number(localStorage.spentMoney) <= 0){
+					alert("Emmmmm.....\nSeems the price is not correct...\nPlease check it again!")
+				}else{
+					left = (left+Number(price)).toFixed(2);
+					localStorage.spentMoney = money-left;
+					$('#left_money').text('$'+left);
+					$('#spent_money').text('$'+(money-left).toFixed(2));
+					$('#shopping_sound')[0].currentTime=0;
+					$('#shopping_sound')[0].play();
+				}
+				
+			}
+
 		}
 
 
@@ -394,6 +421,20 @@
 
 			}
 		}
+
+
+
+
+
+		 $( function() {
+    
+ 
+    $( "#sh").on( "click", function() {
+      dialog.dialog( "open" );
+    });
+  } );
+
+
 
 		//////////////////////////////////////
 		//Button click events
@@ -458,6 +499,10 @@
 
     	//Sad face buttons on click
     	$(".sad").click(function(){
+    		if(money - parseFloat(localStorage.spentMoney) < 0.5){
+    			alert("Sorry, you don't have enough money to cancel a heart\nPlease return a shopping item");
+    			return;
+    		}
   			$(this).parent().find('button:first').removeClass('disabled');
   			var classes;
     		var id;
@@ -532,3 +577,10 @@
     		check_btn_status(index, $(this)); //call function to modify the button class
     		
     	});
+
+
+
+
+
+
+
