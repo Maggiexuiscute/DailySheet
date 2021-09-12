@@ -1,6 +1,6 @@
 	
-var check = window.localStorage.length;
-console.log(check);
+	var check = window.localStorage.length;
+
 	if(check == 0){
 		var init_set = confirm("Welcome to PJ Masks weekly sheet!");
 		if(init_set){
