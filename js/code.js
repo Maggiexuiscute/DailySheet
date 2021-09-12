@@ -13,6 +13,7 @@
 		//location.reload();
     	//Initialize 
     	const EVENT = 9;
+    	var money;
     	localStorage.monSlide = 0;
     	localStorage.tueSlide = 0;
     	localStorage.wenSlide = 0;
@@ -23,8 +24,6 @@
     	//localStorage.monCount = 'NaN'
 
     	$('#gifts').height($('.carousel-item').height());
-    	console.log($('.carousel-item').height())
-    	console.log($('#gifts').height())
 
     	var myCarousel = $('.daily_carousel');
     	myCarousel.each(function(i,c){
@@ -34,6 +33,7 @@
     		});
 
     	});
+
     	get_local_storage();
 
 		//Get the current date
@@ -63,22 +63,31 @@
    		function get_local_storage(){
 
 			if (typeof(Storage) != "undefined") {
-			var text= "Not set yet";
-			if(localStorage.goal == null || localStorage.goal == ""){
-				$('#info_card').find('i').addClass('hide');
-			}else{
-				text = localStorage.goal;
-				$('#info_card').find('i').removeClass('hide');
-			}
-			$('#goal').text(text + " ");
 
-			var prize_text = "Not set yet";
-			console.log(localStorage.prize)
-			if(localStorage.prize == null || localStorage.prize == ""){
-			}else{
-				prize_text = localStorage.prize;
+			money = (parseFloat(localStorage.clickcount)/2).toFixed(2);
+			$('#total_money').text(money);
+			if(localStorage.spentMoney == 'NaN' || localStorage.spentMoney < 0 || localStorage.spentMoney == undefined){
+				localStorage.spentMoney = 0;
 			}
-			$('#prize').text(prize_text);
+			$('#spent_money').text('$'+parseFloat(localStorage.spentMoney).toFixed(2));
+			$('#left_money').text('$'+(money-parseFloat(localStorage.spentMoney)).toFixed(2));
+			
+			// var text= "Not set yet";
+			// if(localStorage.goal == null || localStorage.goal == ""){
+			// 	$('#info_card').find('i').addClass('hide');
+			// }else{
+			// 	text = localStorage.goal;
+			// 	$('#info_card').find('i').removeClass('hide');
+			// }
+			// $('#goal').text(text + " ");
+
+			// var prize_text = "Not set yet";
+			// console.log(localStorage.prize)
+			// if(localStorage.prize == null || localStorage.prize == ""){
+			// }else{
+			// 	prize_text = localStorage.prize;
+			// }
+			// $('#prize').text(prize_text);
 
 
 			if(localStorage.clickcount == 'NaN' || localStorage.clickcount < 0 || localStorage.clickcount == undefined){
@@ -245,6 +254,7 @@
 			}else if(localStorage.clickcount > 0) {
 				localStorage.clickcount = Number(localStorage.clickcount) - 1;
 			}
+
 			console.log(daily_count);
 			console.log(localStorage.tueCount);
 			switch(daily_count){
@@ -320,32 +330,59 @@
     		})
 		}
 
-		function set_goal(){
-			var text;
-			var goal = prompt("Please enter your gaol for this week", "50");
-			if(goal == null || goal == ""){
-				text= "Not set yet";
-				$('#info_card').find('i').addClass('hide');
-			}else{
-				text = goal;
-				$('#info_card').find('i').removeClass('hide');	
+		// function set_goal(){
+		// 	var text;
+		// 	var goal = prompt("Please enter your gaol for this week", "50");
+		// 	if(goal == null || goal == ""){
+		// 		text= "Not set yet";
+		// 		$('#info_card').find('i').addClass('hide');
+		// 	}else{
+		// 		text = goal;
+		// 		$('#info_card').find('i').removeClass('hide');	
+		// 	}
+		// 	localStorage.goal = goal;
+		// 	$('#goal').text(text + " ");
+		// }
+
+		// function set_gift(){
+		// 	var text;
+		// 	var prize = prompt("Please enter the prize for this week", "");
+		// 	console.log(prize == "")
+		// 	if(prize == null || prize == ""){
+		// 		text= "Not set yet";
+		// 	}else{
+		// 		text = prize;
+		// 	}
+		// 	localStorage.prize = prize;
+		// 	$('#prize').text(text);
+		// }
+
+		function shopping(){
+			var price = prompt("Please enter the price", money);
+			var left
+			if(price == null){
+				return;
 			}
-			localStorage.goal = goal;
-			$('#goal').text(text + " ");
+			if(price == ""){
+				alert("You haven't filled the price!\nPress Ok to continue");
+				shopping();
+			}else{
+				if(money < parseFloat(price)){
+					alert("Oops!\nSeems you don't have enough money...\nTry to earn more hearts!")
+				}else{
+					left = parseFloat(money-Number(price)).toFixed(2);
+					localStorage.spentMoney = price;
+					$('#left_money').text('$'+left);
+					$('#spent_money').text('$'+price);
+
+					$('#shopping_sound')[0].play();
+				}
+				
+			}
+			
+			
 		}
 
-		function set_gift(){
-			var text;
-			var prize = prompt("Please enter the prize for this week", "");
-			console.log(prize == "")
-			if(prize == null || prize == ""){
-				text= "Not set yet";
-			}else{
-				text = prize;
-			}
-			localStorage.prize = prize;
-			$('#prize').text(text);
-		}
 
 		function clear_storage() {
 			var confirmed = confirm("Are you sure to reset everything?");
