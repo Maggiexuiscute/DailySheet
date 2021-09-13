@@ -1,8 +1,9 @@
 	
 	var check = window.localStorage.length;
-
 	if(check == 0){
 		var init_set = confirm("Welcome to PJ Masks weekly sheet!");
+		inti_mon = new Date().getMonth();
+		inti_day = new Date().getDate();
 		if(init_set){
 			get_local_storage();
 		}else{
@@ -38,6 +39,7 @@
 
 		//Get the current date
     	var current_date = new Date().getDay();
+
     	var date_card = {'1':'mon_card', '2':'tue_card', '3':'wen_card', '4':'thu_card', '5':'fri_card','6':'sat_card', '0':'sun_card'};
     	$.each(date_card,function(key,val){
     		if(current_date == 0){
@@ -378,12 +380,18 @@
 					$('#spent_money').text('$'+price);
 					$('#shopping_sound')[0].currentTime=0;
 					$('#shopping_sound')[0].play();
+					$("#dollar").addClass('animate');
 				}
 				
 			}
 			
 			
 		}
+
+		$("#dollar").on('animationed',function(){
+			$(this).removeClass('animate');
+		});
+
 
 		function shopping_return(){
 			var price = prompt("Please enter the price of your return", " ");
@@ -414,7 +422,6 @@
 		function clear_storage() {
 			var confirmed = confirm("Are you sure to reset everything?");
 			if(confirmed){
-				console.log(confirmed);
 				localStorage.clear();
 				get_local_storage();
 				location.reload();
@@ -424,15 +431,6 @@
 
 
 
-
-
-		 $( function() {
-    
- 
-    $( "#sh").on( "click", function() {
-      dialog.dialog( "open" );
-    });
-  } );
 
 
 
@@ -491,7 +489,8 @@
   				}
 
   			});
-
+  			$('#hooray_sound')[0].currentTime=0;
+			$('#hooray_sound')[0].play();
   			save_on_local_storage(classes,id,count,daily_count);
   			get_local_storage();
   			
@@ -548,6 +547,8 @@
 
   				}
   			});
+  			$('#sad_sound')[0].currentTime=0;
+			$('#sad_sound')[0].play();
     		save_on_local_storage(classes, id, count, daily_count);
     		get_local_storage();
 
