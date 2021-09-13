@@ -66,7 +66,7 @@
 
 			if (typeof(Storage) != "undefined") {
 
-			money = (parseFloat(localStorage.clickcount)/2).toFixed(2);
+			money = parseFloat(localStorage.clickcount).toFixed(2);
 			$('#total_money').text(money);
 			if(localStorage.spentMoney == 'NaN' || localStorage.spentMoney < 0 || localStorage.spentMoney == undefined){
 				localStorage.spentMoney = 0;
@@ -362,7 +362,6 @@
 
 		function shopping(){
 			var price = prompt("Please enter the price", money);
-
 			var left = money - Number(localStorage.spentMoney);
 			if(price == null){
 				return;
