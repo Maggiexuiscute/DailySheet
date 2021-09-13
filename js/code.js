@@ -234,7 +234,7 @@
 				$('#'+id).html("");
 				if(store){
 					for(var i = 0; i < store; i++){
-						$('#'+id).append('<i class="fas fa-heart"></i> ');
+						$('#'+id).html('<i class="fas fa-heart"></i> ' + Number(store));
 					}
 				}
 			}
