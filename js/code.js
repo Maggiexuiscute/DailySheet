@@ -65,14 +65,33 @@
    		function get_local_storage(){
 
 			if (typeof(Storage) != "undefined") {
+				console.log(localStorage.setWallet == 'undefined');
+				console.log(localStorage.setWallet == undefined);
+				if(localStorage.setWallet == undefined || localStorage.setWallet == 'undefined'){
+					localStorage.setWallet = 0;
+				}
+				money = parseFloat(localStorage.clickcount).toFixed(2);
+				wallet_init = parseFloat(localStorage.setWallet).toFixed(2);
+				wallet_all = (parseFloat(money) + parseFloat(wallet_init)).toFixed(2);
+				
+			if(wallet_init == 0.00){
+					$('#total_money').text(money);
+				}
+			if(wallet_init != 0.00){
+					if(money != 0.00){
+					$('#total_money').text(wallet_all);
+					}else{
+					$('#total_money').text(wallet_init);
+					}
+				}
 
-			money = parseFloat(localStorage.clickcount).toFixed(2);
-			$('#total_money').text(money);
+			console.log($('#total_money').text());
+			
 			if(localStorage.spentMoney == 'NaN' || localStorage.spentMoney < 0 || localStorage.spentMoney == undefined){
 				localStorage.spentMoney = 0;
 			}
 			$('#spent_money').text('$'+parseFloat(localStorage.spentMoney).toFixed(2));
-			$('#left_money').text('$'+(money-parseFloat(localStorage.spentMoney)).toFixed(2));
+			$('#left_money').text('$'+(parseFloat($('#total_money').text())-parseFloat(localStorage.spentMoney)).toFixed(2));
 			
 			// var text= "Not set yet";
 			// if(localStorage.goal == null || localStorage.goal == ""){
@@ -430,7 +449,21 @@
 
 
 
-
+		function add_money(){
+			var wallet = prompt("Please enter the amount to roll in", " ");
+			if(wallet == null){
+				return;
+			}
+			if(wallet == ""){
+				alert("You haven't filled the amount!\nPress Ok to continue");
+				add_money();
+			}else{
+				$('#total_money').text('$'+wallet);
+				localStorage.setWallet = wallet;
+				get_local_storage();
+				location.reload();
+			}
+		}
 
 
 		//////////////////////////////////////
