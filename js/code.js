@@ -74,18 +74,15 @@
 				wallet_init = parseFloat(localStorage.setWallet).toFixed(2);
 				wallet_all = (parseFloat(money) + parseFloat(wallet_init)).toFixed(2);
 				
-			if(wallet_init == 0.00){
-					$('#total_money').text(money);
-				}
 			if(wallet_init != 0.00){
 					if(money != 0.00){
-					$('#total_money').text(wallet_all);
+					money = wallet_all;
 					}else{
-					$('#total_money').text(wallet_init);
+					money = wallet_init;
 					}
 				}
 
-			console.log($('#total_money').text());
+				$('#total_money').text(money);
 			
 			if(localStorage.spentMoney == 'NaN' || localStorage.spentMoney < 0 || localStorage.spentMoney == undefined){
 				localStorage.spentMoney = 0;
